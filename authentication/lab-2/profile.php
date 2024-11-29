@@ -1,5 +1,7 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,26 +20,26 @@
     </style>
 
 </head>
+
 <body>
 
-<div class="container">
-    <aside class="sidebar">
-        <p>Halaman Profile</p>
+    <div class="container">
+        <aside class="sidebar">
+            <p>Halaman Profile</p>
 
-    </aside>
+        </aside>
 
-    <div class="main-content">
-        <div class="filter">
-            <a href="<?php echo $host;?>/authentication/lab-2/" ><button type="button" class="btn btn-outline-primary">Back</button></a>
-        </div>
+        <div class="main-content">
+            <div class="filter">
+                <a href="<?php echo $host; ?>/authentication/lab-2/"><button type="button" class="btn btn-outline-primary">Back</button></a>
+            </div>
 
-        <div class="login-container">
-            Selamat datang, <?php
-            session_start();
-            echo $_SESSION['username'];?>
+            <div class="login-container">
+                Selamat datang, <?php echo $_SESSION['username']; ?>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>

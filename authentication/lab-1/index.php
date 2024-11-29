@@ -1,5 +1,7 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,45 +20,47 @@
     </style>
 
 </head>
+
 <body>
 
-<div class="container">
-    <aside class="sidebar">
-        <p>Pada studi kasus berikut dimana peretas dapat melakukan
-            serangan brute force atau credential stuffing pada halaman login</p>
+    <div class="container">
+        <aside class="sidebar">
+            <p>Pada studi kasus berikut dimana peretas dapat melakukan
+                serangan brute force atau credential stuffing pada halaman login</p>
 
-    </aside>
+        </aside>
 
-    <div class="main-content">
-        <div class="filter">
-            <a href="<?php echo $host;?>/authentication/" ><button type="button" class="btn btn-outline-primary">Back</button></a>
-        </div>
+        <div class="main-content">
+            <div class="filter">
+                <a href="<?php echo $host; ?>/authentication/"><button type="button" class="btn btn-outline-primary">Back</button></a>
+            </div>
 
-        <div class="login-container">
-            <?php
-            session_start();
-            if (isset($_SESSION['error_message'])) {
-                echo "<div style='color: red;margin-top: 10px'>" . $_SESSION['error_message'] ."</div > ";
-                unset($_SESSION['error_message']);
-            }
-            ?>
-            <h2>Login</h2>
-            <form action="<?php echo $host;?>/authentication/lab-1/actLogin.php" method="POST">
-                <div class="form-group">
-                    <label for="username">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
-            </form>
+            <div class="login-container">
+                <?php
 
+                if (isset($_SESSION['error_message'])) {
+                    echo "<div style='color: red;margin-top: 10px'>" . $_SESSION['error_message'] . "</div > ";
+                    unset($_SESSION['error_message']);
+                }
+                ?>
+                <h2>Login</h2>
+                <form action="<?php echo $host; ?>/authentication/lab-1/actLogin.php" method="POST">
+                    <div class="form-group">
+                        <label for="username">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+
+            </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>
