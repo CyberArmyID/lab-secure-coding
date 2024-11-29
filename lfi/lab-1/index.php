@@ -1,5 +1,7 @@
+<?php include 'getProduct.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,44 +19,45 @@
         cursor: pointer;
     }
 </style>
+
 <body>
 
-<div class="container">
-    <aside class="sidebar">
-        <p>Peretas dapat mengiputkan payload pada kode pemanggilan gambar untuk melakukan directory traversal</p>
+    <div class="container">
+        <aside class="sidebar">
+            <p>Peretas dapat mengiputkan payload pada kode pemanggilan gambar untuk melakukan directory traversal</p>
 
-    </aside>
+        </aside>
 
-    <div class="main-content">
-        <div class="filter">
-            <?php
-            include 'getProduct.php';
-            echo '<a href="' . $host . '/lfi"><button >Back</button></a>';
-            ?>
+        <div class="main-content">
+            <div class="filter">
+                <?php
+                echo '<a href="' . $host . '/lfi"><button >Back</button></a>';
+                ?>
 
-        </div>
+            </div>
 
-        <div class="product-grid">
-            <?php
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) { ?>
-                    <div class="product">
-                        <img src="<?php echo $host.'/lfi/lab-1/getFile.php?file='.$row['thumbnail'];?>">
-                        <h4><?php echo $row['name']; ?> </h4>
-                        <h6>Kategori: <?php echo $row['name']; ?> </h6>
-                        <p class="price">Rp.<?php echo $row['price']; ?></p>
-                        <button>View details</button>
-                    </div>
+            <div class="product-grid">
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) { ?>
+                        <div class="product">
+                            <img src="<?php echo $host . '/lfi/lab-1/getFile.php?file=' . $row['thumbnail']; ?>">
+                            <h4><?php echo $row['name']; ?> </h4>
+                            <h6>Kategori: <?php echo $row['name']; ?> </h6>
+                            <p class="price">Rp.<?php echo $row['price']; ?></p>
+                            <button>View details</button>
+                        </div>
                 <?php }
-            } else {
-                echo "Tidak ada produk yang ditemukan.";
-            }
-            ?>
+                } else {
+                    echo "Tidak ada produk yang ditemukan.";
+                }
+                ?>
+
+            </div>
 
         </div>
-
     </div>
-</div>
 
 </body>
+
 </html>
