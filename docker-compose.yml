@@ -23,5 +23,17 @@ services:
       - db_data_secure_coding:/var/lib/mysql
       - ./secure_coding.sql:/docker-entrypoint-initdb.d/database.sql:ro
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_secure_coding
+    depends_on:
+      - db_secure_coding
+    ports:
+      - "9003:80"  
+    environment:
+      PMA_HOST: db_secure_coding
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+
 volumes:
   db_data_secure_coding:

@@ -10,4 +10,10 @@
     docker compose build && docker compose up -d
  ````
 ## 3. deploy
-  Running at *http://127.0.0.1:8003* 
+  ### API
+- **URL API:** [http://127.0.0.1:8003](http://127.0.0.1:8003)
+
+### PhpMyAdmin
+- **URL phpMyAdmin:** [http://127.0.0.1:9003](http://127.0.0.1:9003)
+- **Username:** `root`
+- **Password:** `root`
