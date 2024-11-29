@@ -5,15 +5,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: php_app_secure_coding
+    container_name: lab_secure_coding
     volumes:
-      - ./src:/var/www/html
+      - .:/var/www/html
     ports:
       - "8003:80"
     depends_on:
-      - db
+      - db_secure_coding
 
-  db:
+  db_secure_coding:
     image: mysql:8.0
     container_name: mysql_db_secure_coding
     environment:
@@ -24,4 +24,4 @@ services:
       - ./secure_coding.sql:/docker-entrypoint-initdb.d/database.sql:ro
 
 volumes:
-  db_data:
+  db_data_secure_coding:
