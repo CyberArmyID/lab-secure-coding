@@ -1,5 +1,7 @@
+<?php include "getData.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,74 +66,76 @@
         }
     </style>
 
-   <script>
-    function withdrawl() {
-    // Get the saldo amount from the page
-    var saldoAmount = document.querySelector('.saldo-amount').textContent.trim();
-    
-// Debug the response using console.log
+    <script>
+        function withdrawl() {
+            // Get the saldo amount from the page
+            var saldoAmount = document.querySelector('.saldo-amount').textContent.trim();
 
-    // Send the saldo to the withdrawl.php via AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "lab-1/withdrawl.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            // Parse the response JSON
-            var response = JSON.parse(xhr.responseText);
-            
             // Debug the response using console.log
-            console.log("Response from withdrawl.php:", response);
-            
-            if (response.status === 'success') {
-                // If the response indicates success, redirect to history.php
-                window.location.href = "history.php";
-            } else {
-                // If there was an error, show an alert with the message
-                alert('Error: ' + response.message);
-            }
-        } else {
-            alert('An error occurred: ' + xhr.status);
-        }
-    };
 
-    // Send the saldo amount as a parameter to withdrawl.php
-    xhr.send("saldo=" + encodeURIComponent(saldoAmount));
-}
+            // Send the saldo to the withdrawl.php via AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "lab-1/withdrawl.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Parse the response JSON
+                    var response = JSON.parse(xhr.responseText);
+
+                    // Debug the response using console.log
+                    console.log("Response from withdrawl.php:", response);
+
+                    if (response.status === 'success') {
+                        // If the response indicates success, redirect to history.php
+                        window.location.href = "history.php";
+                    } else {
+                        // If there was an error, show an alert with the message
+                        alert('Error: ' + response.message);
+                    }
+                } else {
+                    alert('An error occurred: ' + xhr.status);
+                }
+            };
+
+            // Send the saldo amount as a parameter to withdrawl.php
+            xhr.send("saldo=" + encodeURIComponent(saldoAmount));
+        }
     </script>
 </head>
+
 <body>
-<?php include "getData.php";?>
-<div class="container">
-    <aside class="sidebar">
-        <p>Pada studi kasus berikut peretas dapat mengupload file apapun ke server</p>
-    </aside>
-    <div class="main-content">
-        <div class="filter">
-            <a href="?category=elektronik">
-                <button>Saldo</button>
-            </a>
-            <a href="?category=elektronik">
-                <button>History</button>
-            </a>
-            |
-            <a href="/sql-injection">
-                <button>Back</button>
-            </a>
-        </div>
-        <div class="saldo-card">
-            <h2>Saldo Anda</h2>
-            <p class="saldo-amount">Rp <?php echo $data['saldo'];?></p>
-            <p class="saldo-info">Saldo ini dapat Anda tarik kapan saja.</p>
-            <button class="btn border-primary withdraw-button" type="button" onclick="withdrawl()">Ambil Saldo</button>
-            |
-            <a href="/broken-access-control/">
-                <button class="btn border-primary">Back</button>
-            </a>
+
+    <div class="container">
+        <aside class="sidebar">
+            <p>Pada studi kasus berikut peretas dapat mengupload file apapun ke server</p>
+        </aside>
+        <div class="main-content">
+            <div class="filter">
+                <a href="?category=elektronik">
+                    <button>Saldo</button>
+                </a>
+                <a href="?category=elektronik">
+                    <button>History</button>
+                </a>
+                |
+                <a href="/sql-injection">
+                    <button>Back</button>
+                </a>
+            </div>
+            <div class="saldo-card">
+                <h2>Saldo Anda</h2>
+                <p class="saldo-amount">Rp <?php echo $data['saldo']; ?></p>
+                <p class="saldo-info">Saldo ini dapat Anda tarik kapan saja.</p>
+                <button class="btn border-primary withdraw-button" type="button" onclick="withdrawl()">Ambil Saldo</button>
+                |
+                <a href="/broken-access-control/">
+                    <button class="btn border-primary">Back</button>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>
