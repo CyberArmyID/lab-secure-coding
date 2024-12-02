@@ -1,6 +1,6 @@
 <?php
-//$servername = "mysql_db_secure_coding"; // Ganti dengan server database Anda jika perlu
-$servername = "localhost"; // Ganti dengan server database Anda jika perlu
+$servername = "mysql_db_secure_coding"; // Ganti dengan server database Anda jika perlu
+//$servername = "localhost"; // Ganti dengan server database Anda jika perlu
 $username = "root"; // Ganti dengan username database Anda
 $password = "root"; // Ganti dengan password database Anda
 $dbname = "secure_coding"; // Nama database yang dibuat sebelumnya
