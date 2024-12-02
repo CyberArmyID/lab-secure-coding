@@ -18,7 +18,6 @@ $result = $conn->query($sql);
 
 $profile = mysqli_fetch_assoc($result);
 
-$fullname = $profile['fullname'];
 $avatar = $profile['avatar'] ?? "";
 
 

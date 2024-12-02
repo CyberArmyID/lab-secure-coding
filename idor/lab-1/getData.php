@@ -4,7 +4,7 @@ require '../../connection.php';
 //cookie user id 3
 setcookie('accessLogin', "01ed90ff6945d13d3bd60174e7bd057e", time() + (86400 * 30), "/"); // Cookie berlaku selama 30 hari
 
-$cookieValue = $_COOKIE['accessLogin'] ?? null;
+$cookieValue = $_COOKIE['accessLogin'];
 
 $sql = "SELECT s.saldo
         FROM access_login al 

@@ -87,8 +87,9 @@
                     console.log("Response from withdrawl.php:", response);
 
                     if (response.status === 'success') {
+
                         // If the response indicates success, redirect to history.php
-                        window.location.href = "history.php";
+                        window.location.href = "lab-1/history.php";
                     } else {
                         // If there was an error, show an alert with the message
                         alert('Error: ' + response.message);
@@ -112,14 +113,14 @@
         </aside>
         <div class="main-content">
             <div class="filter">
-                <a href="?category=elektronik">
+                <a href="<?php echo $host;?>/idor/lab-1">
                     <button>Saldo</button>
                 </a>
-                <a href="?category=elektronik">
+                <a href="<?php echo $host;?>/idor/lab-1/history.php">
                     <button>History</button>
                 </a>
                 |
-                <a href="/sql-injection">
+                <a href="<?php echo $host;?>/idor">
                     <button>Back</button>
                 </a>
             </div>
@@ -129,7 +130,7 @@
                 <p class="saldo-info">Saldo ini dapat Anda tarik kapan saja.</p>
                 <button class="btn border-primary withdraw-button" type="button" onclick="withdrawl()">Ambil Saldo</button>
                 |
-                <a href="/broken-access-control/">
+                <a href="/idor/">
                     <button class="btn border-primary">Back</button>
                 </a>
             </div>

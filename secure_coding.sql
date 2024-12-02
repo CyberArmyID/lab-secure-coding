@@ -43,58 +43,6 @@ INSERT INTO `access_login` VALUES (3,1,'cdaac3637005478e3158527e388195g2',NULL),
 UNLOCK TABLES;
 
 --
--- Table structure for table `bank`
---
-
-DROP TABLE IF EXISTS `bank`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `bank` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int DEFAULT NULL,
-  `bank_name` varchar(255) DEFAULT NULL,
-  `bank_account_number` varchar(255) DEFAULT NULL,
-  `bank_account_name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `bank`
---
-
-LOCK TABLES `bank` WRITE;
-/*!40000 ALTER TABLE `bank` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bank` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `documents`
---
-
-DROP TABLE IF EXISTS `documents`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `documents` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `filename` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `documents`
---
-
-LOCK TABLES `documents` WRITE;
-/*!40000 ALTER TABLE `documents` DISABLE KEYS */;
-/*!40000 ALTER TABLE `documents` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `otp`
 --
 
@@ -108,7 +56,7 @@ CREATE TABLE `otp` (
   `user_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +65,6 @@ CREATE TABLE `otp` (
 
 LOCK TABLES `otp` WRITE;
 /*!40000 ALTER TABLE `otp` DISABLE KEYS */;
-INSERT INTO `otp` VALUES (14,'2024-11-25 08:51:28',1360,2);
 /*!40000 ALTER TABLE `otp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,7 +138,7 @@ CREATE TABLE `profiles` (
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +147,7 @@ CREATE TABLE `profiles` (
 
 LOCK TABLES `profiles` WRITE;
 /*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
-INSERT INTO `profiles` VALUES (1,1,'admin',NULL,NULL),(2,2,'john wick',NULL,NULL),(3,3,'Jhon','',NULL),(4,4,'john doe','pikabat-removebg-preview.png',NULL),(5,5,'lorem ipsum',NULL,NULL),(6,6,'ipsum lorem',NULL,NULL);
+INSERT INTO `profiles` VALUES (1,1,'admin',NULL,NULL),(2,2,'john wick',NULL,NULL),(3,3,'Jhon','',NULL),(5,5,'lorem ipsum',NULL,NULL),(6,6,'ipsum lorem',NULL,NULL),(7,4,'doe',NULL,NULL);
 /*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +174,7 @@ CREATE TABLE `saldo` (
 
 LOCK TABLES `saldo` WRITE;
 /*!40000 ALTER TABLE `saldo` DISABLE KEYS */;
-INSERT INTO `saldo` VALUES (1,3,10000,NULL);
+INSERT INTO `saldo` VALUES (1,3,100000,NULL);
 /*!40000 ALTER TABLE `saldo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,7 +193,7 @@ CREATE TABLE `saldo_histories` (
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,6 +202,7 @@ CREATE TABLE `saldo_histories` (
 
 LOCK TABLES `saldo_histories` WRITE;
 /*!40000 ALTER TABLE `saldo_histories` DISABLE KEYS */;
+INSERT INTO `saldo_histories` VALUES (2,3,10000,1,NULL),(3,3,5000,1,NULL);
 /*!40000 ALTER TABLE `saldo_histories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,7 +258,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'administrator','password1','2024-10-25 06:22:13','administrator@example.com',NULL,'admin'),(2,'john','password2','2024-10-25 06:22:13','john@example.com','08123456789','member'),(3,'wick','password3','2024-10-25 06:22:13','wick@example.com','08123456788','member'),(4,'doe','password4','2024-10-25 06:22:13','doe@example.com','08123456787','member'),(5,'lorem','password5','2024-10-25 06:22:13','lorem@example.com','08123456786','member'),(6,'ipsum','password6','2024-10-25 06:22:13','ipsum@example.com','08123456785','member');
+INSERT INTO `users` VALUES (1,'administrator','19b58543c85b97c5498edfd89c11c3aa8cb5fe51','2024-10-25 06:22:13','administrator@example.com',NULL,'admin'),(2,'john','19b58543c85b97c5498edfd89c11c3aa8cb5fe51','2024-10-25 06:22:13','john@example.com','08123456789','member'),(3,'wick','b1b3773a05c0ed0176787a4f1574ff0075f7521e','2024-10-25 06:22:13','wick@example.com','08123456788','member'),(4,'doe','19b58543c85b97c5498edfd89c11c3aa8cb5fe51','2024-10-25 06:22:13','doe@example.com','08123456787','member'),(5,'lorem','19b58543c85b97c5498edfd89c11c3aa8cb5fe51','2024-10-25 06:22:13','lorem@example.com','08123456786','member'),(6,'ipsum','19b58543c85b97c5498edfd89c11c3aa8cb5fe51','2024-10-25 06:22:13','ipsum@example.com','08123456785','member');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -323,4 +271,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-29 10:12:26
+-- Dump completed on 2024-12-02 22:33:02

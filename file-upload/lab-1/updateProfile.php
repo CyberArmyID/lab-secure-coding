@@ -53,4 +53,4 @@ if ($conn->query($queryUpdateProfile) === FALSE) {
 
 $message = "Data profile berhasil diupdate";
 header('Location: ' . $host . '/file-upload/lab-1/index.php?message=' . urlencode($message));
-die();
+exit();

@@ -17,5 +17,5 @@ if (isset($row)) {
 }
 $_SESSION['error_message'] = "Kode OTP Tidak Sesuai";
 
-header('location: '.$host.'/authentication/lab-2/');
+header('location: '.$host.'/authentication/lab-2/otp.php');
 exit;

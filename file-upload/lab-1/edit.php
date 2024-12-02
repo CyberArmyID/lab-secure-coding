@@ -36,7 +36,6 @@
             </div>
 
             <div>
-                <?php include 'getProfile.php'; ?>
                 <form action="<?php echo $host; ?>/file-upload/lab-1/updateProfile.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Avatar</label>
